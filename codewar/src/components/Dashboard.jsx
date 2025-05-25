@@ -30,7 +30,7 @@ function Dashboard() {
         <div className="hidden md:flex items-center">
           <ul className="flex items-center space-x-6 lg:space-x-10">
             <Link
-              to="/"
+              to="/overview"
               className="text-white text-sm hover:text-blue-400 transition-colors"
             >
               OverView
@@ -83,7 +83,7 @@ function Dashboard() {
           <div className="md:hidden absolute top-16 left-0 right-0 bg-slate-800 border-t border-slate-700">
             <div className="px-4 py-2 space-y-4">
               <Link
-                to="/"
+                to="/overview"
                 className="block text-white hover:text-blue-400 transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >

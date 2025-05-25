@@ -46,7 +46,7 @@ function Home() {
   }, []);
   
 const navigate = useNavigate();
-  const handleLogin = () => {
+  const handleMatch = () => {
     navigate("/dashboard");
   };
   return (
@@ -93,7 +93,7 @@ const navigate = useNavigate();
         {/* Desktop Buttons */}
         <div className="hidden md:flex space-x-4">
           <Link
-            to="/dashboard"
+            to="/login"
             className="bg-transparent hover:bg-blue-600 text-white px-4 py-2 border border-blue-500 rounded-md text-sm transition-colors inline-block"
           >
             Login
@@ -153,7 +153,7 @@ const navigate = useNavigate();
               <div className="flex space-x-4 pt-2 pb-4">
                 <buttton 
                   className="bg-transparent hover:bg-blue-600 text-white px-4 py-2 border border-blue-500 rounded-md text-sm transition-colors w-full text-center"
-                  onClick={handleLogin}
+                
                 >
                   Login
                 </buttton>
@@ -180,7 +180,7 @@ const navigate = useNavigate();
               in real-time, and climb the global leaderboards.
             </p>
             <div className="flex gap-4 justify-center">
-              <button className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors">
+              <button className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors"  onClick={handleMatch}>
                 <FaBolt /> Start Match
               </button>
               <button className="flex items-center gap-2 bg-transparent hover:bg-blue-600 text-white px-6 py-3 border border-blue-500 rounded-md transition-colors">
