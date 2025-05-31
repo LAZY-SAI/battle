@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaBars,FaTrophy } from "react-icons/fa6";
-import { FaTimes,FaClock } from "react-icons/fa";
+import { FaTimes,FaClock, FaUser } from "react-icons/fa";
 import { GoGraph } from "react-icons/go";
 function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ function Dashboard() {
    
   };
   const handlePractice = () => {
-    navigate("/practice");
+    navigate("/option");
   }
 
   return (
@@ -53,7 +53,7 @@ function Dashboard() {
         {/* Desktop Buttons */}
         <div className="hidden md:flex space-x-4">
           <span className="text-white-400 font-bold">
-            Welcome back, Player 1{" "}
+            Welcome back, <br/>Player 1{" "}
           </span>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm transition-colors"
@@ -61,6 +61,13 @@ function Dashboard() {
           >
             Sign Out
           </button>
+
+          <div className="bg-slate-400 border rounded-full w-12 h-12 flex items-center justify-center "
+          onClick={()=>navigate('/profile')}>
+               
+             <FaUser 
+             />
+              </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -110,6 +117,9 @@ function Dashboard() {
               >
                 Signout
               </button>
+
+
+              
             </div>
           </div>
         )}

@@ -9,8 +9,8 @@ import {
   FaChartBar,
   FaFacebook,
   FaGithub,
-  FaLinkedin ,
-   FaTwitter
+  FaLinkedin,
+  FaTwitter,
 } from "react-icons/fa6";
 
 import { FaTimes } from "react-icons/fa";
@@ -21,31 +21,30 @@ import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-javascript";
 
-const codeSnippet = `function battle(players) {
-  const results = players.map(player => {
-    const solution = player.solve(challenge());
-    const time = performance.now();
-    return { player, solution, time };
-  });
+const codeSnippet = `              function battle(players) {
+                  const results = players.map(player => {
+                    const solution = player.solve(challenge());
+                    const time = performance.now();
+                    return { player, solution, time };
+                  });
 
-  // Sort by fastest correct solution
-  return results
-    .filter(s => s.solution.passed)
-    .sort((a, b) => a.time - b.time);
-}
+                  // Sort by fastest correct solution
+                  return results
+                    .filter(s => s.solution.passed)
+                    .sort((a, b) => a.time - b.time);
+                }
 
-// Current match: 3 players, 2 correct solutions
-const winners = battle([player1, player2, player3]);
-console.log(\`winner: \${winners[0].player.name}\`);`;
+                // Current match: 3 players, 2 correct solutions
+                const winners = battle([player1, player2, player3]);
+                console.log(\`winner: \${winners[0].player.name}\`);`;
 
 function Home() {
-
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     Prism.highlightAll();
   }, []);
-  
-const navigate = useNavigate();
+
+  const navigate = useNavigate();
   const handleMatch = () => {
     navigate("/dashboard");
   };
@@ -98,9 +97,12 @@ const navigate = useNavigate();
           >
             Login
           </Link>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm transition-colors">
+          <Link
+            to="/signup"
+            className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm transition-colors"
+          >
             Sign Up
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -151,10 +153,7 @@ const navigate = useNavigate();
                 About
               </Link>
               <div className="flex space-x-4 pt-2 pb-4">
-                <buttton 
-                  className="bg-transparent hover:bg-blue-600 text-white px-4 py-2 border border-blue-500 rounded-md text-sm transition-colors w-full text-center"
-                
-                >
+                <buttton className="bg-transparent hover:bg-blue-600 text-white px-4 py-2 border border-blue-500 rounded-md text-sm transition-colors w-full text-center">
                   Login
                 </buttton>
                 <button className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm transition-colors w-full">
@@ -170,7 +169,7 @@ const navigate = useNavigate();
       <div className="container mx-auto  ">
         {/* Hero Section */}
         <div className="flex flex-col bg-slate-900 md:flex-row gap-12 items-center text-center rounded mt-12">
-          <div className="flex-1 px-5 ">
+          <div className="flex-1 px-5 py-12 ">
             <h1 className="font-bold text-5xl md:text-6xl mb-4 ">REAL-TIME</h1>
             <h2 className="font-bold text-5xl md:text-6xl text-blue-500 mb-6">
               CODING BATTLES
@@ -180,25 +179,31 @@ const navigate = useNavigate();
               in real-time, and climb the global leaderboards.
             </p>
             <div className="flex gap-4 justify-center">
-              <button className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors"  onClick={handleMatch}>
+              <button
+                className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors"
+                onClick={handleMatch}
+              >
                 <FaBolt /> Start Match
               </button>
-              <button className="flex items-center gap-2 bg-transparent hover:bg-blue-600 text-white px-6 py-3 border border-blue-500 rounded-md transition-colors">
+              <button className="flex items-center gap-2 bg-transparent hover:bg-blue-600 text-white px-6 py-3 border border-blue-500 rounded-md transition-colors"
+              onClick={() => 
+                navigate('/option')
+              }>
                 <FaUserGroup /> Join Match
               </button>
             </div>
           </div>
 
           {/* Code Card */}
-          <div className="flex-1 bg-slate-700 rounded-lg p-6 shadow-xl border border-slate-600 mt-12 ">
-            <div className="flex items-center gap-2 mb-4">
+          <div className="flex-1x-auto md:mx-0  bg-slate-700 rounded-lg p-6 shadow-xl border border-slate-600 mt-12  -translate-x-8 translate-y-2">
+            <div className="flex items-center gap-2 mb-4 -mt-3">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
               <span className="text-gray-400 ml-2 text-sm">battle.js</span>
             </div>
-            <pre className="!m-0 !p-0 !bg-transparent overflow-x-auto">
-              <code className="language-javascript">{codeSnippet}</code>
+            <pre className="!m-0 !p-0 !bg-transparent overflow-x-auto ">
+              <code className="language-javascript ">{codeSnippet}</code>
             </pre>
           </div>
         </div>
@@ -273,56 +278,57 @@ const navigate = useNavigate();
           </div>
         </div>
 
-        {/*How it works */}
-
+        {/* How it works */}
         <div className="mt-32 text-center">
-          <h1 className="text-2xl  font-bold text-sky-600">How It Works</h1>
-          <div className="max-w-4xl mx-auto px-4 py-12">
-            <h1 className="text-4xl font-bold text-center text-white-800 mb-12">
+          <h1 className="text-4xl font-bold text-sky-600">How It Works</h1>
+          <div className="max-w-6xl mx-auto px-4 py-12">
+            <h1 className="text-4xl font-bold text-center text-white mb-12">
               Join the Battle in 3 Simple Steps
             </h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
+              <div className="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-transparent hover:border-blue-500">
+                {" "}
+            
                 <div className="flex items-center mb-4">
                   <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
                     1
                   </div>
-                  <h2 className="text-xl font-semibold text-gray-800">
+                  <h2 className="text-xl font-semibold text-white">
                     Create or Join a Match
                   </h2>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Start a new coding battle or join an existing one. Choose from
                   different difficulty levels and programming languages.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-transparent hover:border-blue-500">
                 <div className="flex items-center mb-4">
                   <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
                     2
                   </div>
-                  <h2 className="text-xl font-semibold text-gray-800">
+                  <h2 className="text-xl font-semibold text-white">
                     Solve the Challenge
                   </h2>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Read the problem statement, write your solution in the code
                   editor, and submit it before time runs out.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-transparent hover:border-blue-500">
                 <div className="flex items-center mb-4">
                   <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
                     3
                   </div>
-                  <h2 className="text-xl font-semibold text-gray-800">
+                  <h2 className="text-xl font-semibold text-white">
                     See the Results
                   </h2>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Watch real-time rankings as solutions are evaluated. See how
                   your approach compares to others.
                 </p>
@@ -330,7 +336,6 @@ const navigate = useNavigate();
             </div>
           </div>
         </div>
-
         {/* testimonials */}
         <div className="mt-32 text-center">
           <h1 className="text-2xl  font-bold text-sky-600">Testimonials</h1>
@@ -396,124 +401,121 @@ const navigate = useNavigate();
         </div>
 
         {/* big card*/}
-        <div className="max-w-6xl h-1vh mx-auto px-4 py-16 text-center">
-          {/* Gradient background container */}
-          <div className="bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-xl p-8 md:p-12 shadow-lg border border-gray-700">
-            {/* Gradient text for headings */}
-            <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+        <div className="flex flex-col bg-gradient-to-br from-gray-800 via-gray-900 to-black md:flex-row gap-12 items-center text-center rounded-xl mt-12 border border-gray-700 p-8">
+          {/* Text content side */}
+          <div className="flex-1 px-5 py-12">
+            <h1 className="font-bold text-4xl md:text-5xl mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
               Ready to test your skills?
             </h1>
-
-            <h2 className="text-3xl font-semibold mb-6 bg-gradient-to-r from-blue-300 to-cyan-400 text-transparent bg-clip-text">
-              Join CodeBattle today!
+            <h2 className="font-bold text-3xl md:text-4xl text-cyan-400 mb-6">
+              Join CodeWar today!
             </h2>
-
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl max-w-lg mb-8 mx-auto">
               Whether you're preparing for interviews or just love coding
-              challenges, CodeBattle will push your skills to the limit.
+              challenges, CodeWar will push your skills to the limit.
             </p>
-
-            <div className="border-t border-gray-700 my-8 w-3/4 mx-auto"></div>
-
-            <h3 className="text-2xl font-medium text-white mb-6">
-              Get Started
-            </h3>
-
-         
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all transform hover:scale-105">
-              Sign In
-            </button>
-
-            {/* Gradient border code block */}
-            <div className="mt-12 p-0.5 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600">
-              <div className="bg-gray-900 p-6 rounded-lg text-left">
-                <pre className="text-green-400 font-mono text-sm overflow-x-auto">
-                  <code>
-                    {`class CodeBattle {
-                  constructor() {
-                    this.players = [];
-                    this.challenges = [];
-                  }
-
-                  join(player) {
-                    this.players.push(player);
-                    console.log(\`Player \${player.name} joined the battle!\`);
-                  }
-
-                  startBattle() {
-                    const challenge = this.getRandomChallenge();
-                    console.log(\`Battle started with challenge: \${challenge.title}\`);
-                    return challenge;
-                  }
-                }`}
-              </code>
-                </pre>
-              </div>
+            <div className="flex gap-4 justify-center">
+              <button
+                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-md transition-all transform hover:scale-105"
+                onClick={() => navigate("/login")}
+              >
+                Sign In
+              </button>
             </div>
           </div>
-        </div>
 
+          {/* Code Card side - matching hero section style */}
+          <div className="flex-1 bg-slate-700 rounded-lg p-6 shadow-xl border border-slate-600">
+            <div className="flex items-center gap-2 mb-4 -mt-3">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <span className="text-gray-400 ml-2 text-sm">codewar.js</span>
+            </div>
+            <pre className="!m-0 !p-0 !bg-transparent overflow-x-auto">
+              <code className="language-javascript ">
+                {`class CodeWar {
+  constructor() {
+    this.players = [];
+    this.challenges = [];
+  }
+
+  join(player) {
+    this.players.push(player);
+    console.log(\`Player \${player.name} joined the battle!\`);
+  }
+
+  startBattle() {
+    const challenge = this.getRandomChallenge();
+    console.log(\`Battle started with challenge: \${challenge.title}\`);
+    return challenge;
+  }
+}`}
+              </code>
+            </pre>
+          </div>
+        </div>
         {/* Footer */}
         <footer className="bg-slate-900 text-center py-20 mt-32 w-full ">
-  <div className="max-w-6xl mx-auto px-4">
-    {/* Social Media Links with Icons */}
-    <div className="flex justify-center space-x-6 mb-6">
-      <a
-        href="https://facebook.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-blue-500 transition-colors"
-      >
-        <FaFacebook className="w-6 h-6" />
-      </a>
-      <a
-        href="https://github.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-gray-300 transition-colors"
-      >
-        <FaGithub className="w-6 h-6" />
-      </a>
-      <a
-        href="https://linkedin.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-blue-600 transition-colors"
-      >
-        <FaLinkedin className="w-6 h-6" />
-      </a>
-      <a
-        href="https://twitter.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-blue-400 transition-colors"
-      >
-        <FaTwitter className="w-6 h-6" />
-      </a>
-    </div>
+          <div className="max-w-6xl mx-auto px-4">
+            {/* Social Media Links with Icons */}
+            <div className="flex justify-center space-x-6 mb-6">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
+              >
+                <FaFacebook className="w-6 h-6" />
+              </a>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-gray-300 transition-colors"
+              >
+                <FaGithub className="w-6 h-6" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-600 transition-colors"
+              >
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-400 transition-colors"
+              >
+                <FaTwitter className="w-6 h-6" />
+              </a>
+            </div>
 
-    {/* Copyright and Links */}
-    <p className="text-gray-400 text-sm mb-4">
-      &copy; {new Date().getFullYear()} CodeWar. All rights reserved.
-    </p>
+            {/* Copyright and Links */}
+            <p className="text-gray-400 text-sm mb-4">
+              &copy; {new Date().getFullYear()} CodeWar. All rights reserved.
+            </p>
 
-    {/* Additional Links */}
-    <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
-      <Link to="/" className="hover:text-blue-400 transition-colors">
-        Privacy Policy
-      </Link>
-      <Link to="/" className="hover:text-blue-400 transition-colors">
-        Terms of Service
-      </Link>
-      <Link to="/" className="hover:text-blue-400 transition-colors">
-        Contact Us
-      </Link>
-      <Link to="/" className="hover:text-blue-400 transition-colors">
-        About
-      </Link>
-    </div>
-  </div>
-</footer>
+            {/* Additional Links */}
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+              <Link to="/" className="hover:text-blue-400 transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/" className="hover:text-blue-400 transition-colors">
+                Terms of Service
+              </Link>
+              <Link to="/" className="hover:text-blue-400 transition-colors">
+                Contact Us
+              </Link>
+              <Link to="/" className="hover:text-blue-400 transition-colors">
+                About
+              </Link>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );

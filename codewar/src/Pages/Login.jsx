@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaTerminal, FaArrowRight , FaArrowLeft} from "react-icons/fa";
 
@@ -17,20 +17,37 @@ function Login() {
     setUser(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("User logged in:", user);
-    // Add your authentication logic here
-  };
+  async function handleSubmit(e) {
+  e.preventDefault(); // Prevent page reload
 
-  const Cursor = () => (
-    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-4 bg-white animate-blink" />
+  // try {
+  //   const response = await fetch('http://localhost:3000/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(user)
+  //   });
+
+  //   const data = await response.json();
+  //   console.log('Success:', data);
+  // } catch (error) {
+  //   console.error('Error:', error);
+  // }
+}
+
+
+  const Cursor = ({delay = 0}) => (
+    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-4 bg-white animate-blink"
+    style={{animationDelay: `${delay}s`}} />
   );
+
+ 
 
   return (
     
     <div className="bg-slate-900 min-h-screen p-8 flex justify-center items-start ">
-         <FaArrowLeft className="text-white text-2xl position absolute -ml-[86rem]" onClick={handleBack}/>
+         <FaArrowLeft className="text-white text-2xl hover:text-sky-600 position absolute -ml-[86rem]" onClick={handleBack}/>
       <div className="w-[500px] rounded-xl overflow-hidden shadow-lg mt-40">
         {/* Terminal Header */}
         <div className="bg-[#202425] p-3 flex items-center justify-between">
@@ -55,7 +72,7 @@ function Login() {
                 placeholder="Enter email"
                 required
               />
-              <Cursor />
+              <Cursor  />
             </div>
           </div>
 
@@ -72,7 +89,7 @@ function Login() {
                 placeholder="Enter password"
                 required
               />
-              <Cursor />
+              <Cursor delay={0.2}/>
             </div>
           </div>
 
@@ -89,7 +106,7 @@ function Login() {
             <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center gap-2"
-            >
+             >
               Login <FaArrowRight />
             </button>
           </div>
@@ -100,7 +117,7 @@ function Login() {
               Don't have an account?{' '}
               <button
                 type="button"
-                onClick={() => navigate('/register')}
+                onClick={() => navigate('/signup')}
                 className="text-blue-400 hover:text-blue-300 underline"
               >
                 Create new account
