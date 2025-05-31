@@ -16,3 +16,6 @@ used content:
       
   -React-icons
     -npm install react-icons --save
+
+-monaco editor
+  -npm install @monaco-editor/react
