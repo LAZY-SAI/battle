@@ -1,10 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaBars,FaTrophy } from "react-icons/fa6";
 import { FaTimes,FaClock, FaUser } from "react-icons/fa";
 import { GoGraph } from "react-icons/go";
+import anime from 'animejs';
 function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
+  const {Quick, Recent, Wins, Rank, Time} = useRef(null)
+  
 
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -14,7 +17,45 @@ function Dashboard() {
   const handlePractice = () => {
     navigate("/option");
   }
-
+useEffect(()=>{
+  anime({
+    targets:'.actionbox',
+    translateX:[-300, 0],
+    opacity:[0,1],
+    duration:2000,
+    easing:'easeOutExpo'
+  }),
+  anime({
+    targets:'.Recentbox',
+    translateX:[300,0],
+    opacity:[0,1],
+    duration:2000,
+    easing:'easeOutExpo'
+  }),
+  anime({
+    targets:'.wins',
+    translateY:[200,0],
+    opacity:[0,1],
+    duration:4000,
+    easing:'easeOutExpo'
+  }),
+  anime({
+    targets:'.rank',
+    translateY:[200,0],
+    opacity:[0,1],
+    duration:5000,
+    easing:'easeOutExpo'
+  }),
+  anime({
+    targets:'.time',
+    translateY:[200,0],
+    opacity:[0,1],
+    duration:8000,
+    easing:'easeOutExpo'
+  })
+  
+  
+})
   return (
     <div className="bg-slate-800 min-h-screen text-white">
       {/* Navbar */}
@@ -131,23 +172,23 @@ function Dashboard() {
           {/* First Row - Quick Actions and Recent Matches */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Quick Actions Box */}
-            <div className="bg-slate-700 rounded-lg p-6 shadow-lg">
+            <div className="bg-slate-700 rounded-lg p-6 shadow-lg actionbox" useRef={Quick}>
               <h2 className="text-xl font-bold mb-4">Quick Actions</h2>
               <div className="space-y-3">
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors">
+                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors  hover:scale-105 match-button" >
                   + Create New Match
                 </button>
-                <button className="w-full bg-slate-600 hover:bg-slate-500 text-white py-2 px-4 rounded-md transition-colors">
+                <button className="w-full bg-slate-600 hover:bg-slate-500 text-white py-2 px-4 rounded-md transition-colors  hover:scale-105 match-button">
                   Join Existing Match
                 </button>
-                <button className="w-full bg-slate-600 hover:bg-slate-500 text-white py-2 px-4 rounded-md transition-colors" onClick={handlePractice}>
+                <button className="w-full bg-slate-600 hover:bg-slate-500 text-white py-2 px-4 rounded-md transition-colors   hover:scale-105 match-button" onClick={handlePractice} >
                   Practice Mode
                 </button>
              
               </div>
             </div>
 
-            <div className="bg-slate-700 rounded-lg p-6 shadow-lg">
+            <div className="bg-slate-700 rounded-lg p-6 shadow-lg Recentbox" useRef={Recent}>
               <h2 className="text-xl font-bold mb-4">Recent Matches</h2>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
@@ -183,20 +224,20 @@ function Dashboard() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {/* Stats Box 1 */}
-            <div className="bg-slate-700 rounded-lg p-6 shadow-lg flex flex-col items-center">
+            <div className="bg-slate-700 rounded-lg p-6 shadow-lg flex flex-col items-center wins" useRef={Wins}>
               <FaTrophy className="w-8 h-8 text-yellow-400 mb-4" />
               <h3 className="text-lg font-medium mb-2">Total Wins</h3>
               <p className="text-3xl font-bold">42</p>
             </div>
 
-            <div className="bg-slate-700 rounded-lg p-6 shadow-lg flex flex-col items-center">
+            <div className="bg-slate-700 rounded-lg p-6 shadow-lg flex flex-col items-center rank" useRef={Rank}>
                          <GoGraph className="w-8 h-8 text-blue-400 mb-4" />
               <h3 className="text-lg font-medium mb-2">Rank</h3>
    
               <p className="text-3xl font-bold">#156</p>
             </div>
 
-            <div className="bg-slate-700 rounded-lg p-6 shadow-lg flex flex-col items-center">
+            <div className="bg-slate-700 rounded-lg p-6 shadow-lg flex flex-col items-center time"  useRef={Time}>
               <FaClock className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-lg font-medium mb-2">Avg. Time</h3>
               <p className="text-3xl font-bold">12:34s</p>

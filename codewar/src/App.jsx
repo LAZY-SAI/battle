@@ -7,6 +7,9 @@ import Login from './Pages/Login.jsx';
 import SignUp from './Pages/Signup.jsx';
 import Option from './Pages/Option.jsx'
 import Profile from './components/Profile.jsx'
+import Comp from './Pages/Competition.jsx'
+import Leader from './Pages/LeaderBoard.jsx'
+import About from './Pages/About.jsx'
 function App() {
  
 
@@ -22,6 +25,9 @@ function App() {
       <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/profile' element={<Profile/>}/>
       <Route path='/practice' element={<Practice/>} />
+      <Route path='/competition' element={<Comp/>}/>
+      <Route path='/Leader' element={<Leader/>}/>
+      <Route path='/about' element={<About/>}/>
       </Routes>
       
     
