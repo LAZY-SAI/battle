@@ -115,11 +115,11 @@ function Ide() {
 
         {/* Code Editor Column */}
         <div className="w-full md:w-1/2 p-6 overflow-y-auto border-t md:border-t-0 md:border-l border-slate-700">
-          <div className="flex flex-wrap items-center gap-4 mb-4">
+          <div className="flex flex-wrap items-center gap-4 mb-4 px-2">
             <select
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
-              className="bg-slate-700 text-white p-2 rounded-md"
+              className="bg-slate-700 text-white p-2 rounded-md px-2"
             >
               <option value="python">Python</option>
               <option value="cpp">C++</option>

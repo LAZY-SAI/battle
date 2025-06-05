@@ -4,9 +4,9 @@ import { FaTerminal, FaPlus, FaUser, FaArrowLeft } from "react-icons/fa";
 
 function SignUp() {
   const [user, setUser] = useState({
-    username: "", // Changed from 'name' to 'username'
-    useremail: "", // Changed from 'email' to 'useremail'
-    userpassword: "", // Changed from 'password' to 'userpassword'
+    username: "", 
+    useremail: "", 
+    userpassword: "", 
   });
   const navigate = useNavigate();
 
@@ -74,7 +74,7 @@ function SignUp() {
             <div className="relative flex-grow">
               <input
                 type="email"
-                name="useremail" // Changed from 'email'
+                name="useremail" 
                 id="useremail-field" // Custom ID
                 value={user.useremail}
                 onChange={handleInputChange}
@@ -93,7 +93,7 @@ function SignUp() {
             <div className="relative flex-grow">
               <input
                 type="password"
-                name="userpassword" // Changed from 'password'
+                name="userpassword" 
                 id="userpassword-field" // Custom ID
                 value={user.userpassword}
                 onChange={handleInputChange}
@@ -112,7 +112,7 @@ function SignUp() {
             <div className="relative flex-grow">
               <input
                 type="password"
-                name="confirmpassword" // Different name
+                name="confirmpassword" 
                 id="confirmpassword-field" // Custom ID
                 value={user.userpassword}
                 onChange={handleInputChange}

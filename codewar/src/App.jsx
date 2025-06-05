@@ -4,7 +4,7 @@ import Home from './components/Home.jsx'
 import Dashboard from './components/Dashboard.jsx';
 import Practice from './Pages/Ide.jsx';
 import Login from './Pages/Login.jsx';
-import SignUp from './Pages/SIgnup.jsx';
+import SignUp from './Pages/Signup.jsx';
 import Option from './Pages/Option.jsx'
 import Profile from './components/Profile.jsx'
 function App() {
