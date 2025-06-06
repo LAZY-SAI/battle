@@ -88,7 +88,7 @@ function About() {
               { icon: <DiJava className="text-5xl text-red-500" />, name: "Java" },
               { icon: <SiCplusplus className="text-5xl text-blue-600" />, name: "C++" }
             ].map((tech, index) => (
-              <div key={index} className="flex flex-col items-center">
+              <div key={index} className="flex flex-col items-center hover:scale-105">
                 {tech.icon}
                 <span className="mt-2">{tech.name}</span>
               </div>
@@ -99,11 +99,12 @@ function About() {
         {/* Team */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-center">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { name: "Alex Johnson", role: "Founder & Lead Developer", bio: "Full-stack developer with a passion for competitive programming.", avatar: "AJ" },
-              { name: "Sarah Chen", role: "Frontend Engineer", bio: "Designs beautiful and intuitive user interfaces.", avatar: "SC" },
-              { name: "Miguel Rodriguez", role: "Backend Engineer", bio: "Builds scalable systems to handle thousands of concurrent battles.", avatar: "MR" }
+              { name: "Bipin Karmacharya", role: "Backend ", avatar: "BK" },
+              { name: "Madhav Shrestha", role: "Backend",  avatar: "MS" },
+              { name: "Sita Shrestha", role: "",  avatar: "SS" },
+              {name:"Rahul Baal", role:"Frontend", avatar:"RB"}
             ].map((member, index) => (
               <div 
                 key={index}

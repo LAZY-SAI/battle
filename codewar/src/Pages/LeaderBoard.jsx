@@ -20,7 +20,7 @@ function LeaderBoards() {
         { rank: 5, name: "SyntaxSquad", score: 9450, problemsSolved: 310, country: "AU", isYou: false },
         { rank: 6, name: "ByteMe", score: 9320, problemsSolved: 302, country: "DE", isYou: false },
         { rank: 7, name: "RecursionPro", score: 9250, problemsSolved: 298, country: "FR", isYou: false },
-        { rank: 8, name: "YourUsername", score: 9150, problemsSolved: 290, country: "US", isYou: true },
+        { rank: 8, name: "YourUsername", score: 9150, problemsSolved: 290, country: "NE", isYou: true },
         { rank: 9, name: "LambdaLord", score: 9020, problemsSolved: 285, country: "BR", isYou: false },
         { rank: 10, name: "NullPointer", score: 8950, problemsSolved: 280, country: "JP", isYou: false }
       ]);
