@@ -6,7 +6,11 @@ import { GoGraph } from "react-icons/go";
 import anime from 'animejs';
 function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
-  const {Quick, Recent, Wins, Rank, Time} = useRef(null)
+const Quick = useRef(null);
+const Recent = useRef(null);
+const Wins = useRef(null);
+const Rank = useRef(null);
+const Time = useRef(null);
   
 
   const navigate = useNavigate();
