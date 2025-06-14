@@ -483,14 +483,14 @@ function Home() {
             </div>
           </div>
 
-          <div className="flex-1 bg-slate-700 rounded-lg p-6 shadow-xl border border-slate-600">
+          <div className="min-w-md  flex-1 bg-slate-700 rounded-lg p-6 shadow-xl border border-slate-600 ">
             <div className="flex items-center gap-2 mb-4 -mt-3">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
               <span className="text-gray-400 ml-2 text-sm">codewar.js</span>
             </div>
-            <pre className="!m-0 !p-0 !bg-transparent overflow-x-auto">
+            <pre className="!m-0 !p-0 !bg-transparent overflow-x-auto min-w-full">
               <code className="language-javascript">
                 {`class CodeWar {
   constructor() {

@@ -103,7 +103,7 @@ function About() {
             {[
               { name: "Bipin Karmacharya", role: "Backend ", avatar: "BK" },
               { name: "Madhav Shrestha", role: "Backend",  avatar: "MS" },
-              { name: "Sita Shrestha", role: "",  avatar: "SS" },
+              { name: "Sita Shrestha", role: "Supervisor",  avatar: "SS" },
               {name:"Rahul Baal", role:"Frontend", avatar:"RB"}
             ].map((member, index) => (
               <div 
