@@ -2,7 +2,7 @@
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
     "@types/prismjs": "^1.26.5",
-    "express": "^5.1.0",
+    "express": "^5.2.1",
     "prismjs": "^1.30.0"
   },
   "devDependencies": {
